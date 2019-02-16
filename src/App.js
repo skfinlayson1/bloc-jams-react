@@ -3,9 +3,9 @@ import {Route, NavLink} from 'react-router-dom';
 import './App.css';
 
 //components
-import Landing from './landing';
-import Library from './library';
-import Album from './album';
+import Landing from './components/landing';
+import Library from './components/library';
+import Album from './components/album';
 
 class App extends Component {
   render() {
@@ -16,7 +16,6 @@ class App extends Component {
           <nav>
             <NavLink to='/'>Home</NavLink>
             <NavLink to='/library'>Library</NavLink>
-            <NavLink to='/album'>Album</NavLink>
           </nav>
         </header>
 
