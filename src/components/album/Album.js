@@ -27,6 +27,21 @@ class Album extends React.Component {
                         <col id="song-duration-column" />
                     </colgroup>  
                     <tbody>
+                        {this.state.album.songs.map( (song,index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>
+                                        {index + 1}
+                                    </td>
+                                    <td>
+                                        {song.title}
+                                    </td>
+                                    <td>
+                                        {`${Math.floor(song.duration)} sec.`}
+                                    </td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
             </section>
