@@ -9,8 +9,42 @@ class Album extends React.Component {
             return album.slug === this.props.match.params.slug
         });
 
-        this.state = {album: album};
+        this.state = {
+            album: album,
+            currentSong: album.songs[0],
+            isPlaying: false
+        };
+
+        this.audioElement = document.createElement('audio');
+        this.audioElement.src = album.songs[0].audioSrc;
     }
+
+    play() {
+        this.audioElement.play();
+        this.setState( prevState => ({isPlaying: prevState.isPlaying = true}))
+    }
+
+    pause() {
+        this.audioElement.pause()
+        this.setState( prevState => ({isPlaying: prevState.isPlaying = false}))
+    }
+
+    setSong(song) {
+        this.audioElement.src = song.audioSrc;
+        this.setState( prevState => ({currentSong: prevState.currentSong = song}))
+    }
+
+    handleSongClick(song) {
+        const isSameSong = this.state.currentSong === song;
+        console.log(song);
+        if (this.state.isPlaying && isSameSong) {
+            this.pause()
+        } else {
+            if (!isSameSong) {this.setSong(song)}
+            this.play()
+        }
+    }
+
     render() {
         return (
             <section id="album-info">
@@ -29,7 +63,7 @@ class Album extends React.Component {
                     <tbody>
                         {this.state.album.songs.map( (song,index) => {
                             return (
-                                <tr key={index}>
+                                <tr key={index} onClick={() => this.handleSongClick(song)}>
                                     <td>
                                         {index + 1}
                                     </td>
