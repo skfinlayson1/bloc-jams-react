@@ -1,5 +1,6 @@
 import React from 'react';
 import albumData from './../../data/albums.js';
+import Song from './song';
 
 class Album extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class Album extends React.Component {
 
         this.state = {
             album: album,
-            currentSong: album.songs[0],
+            currentSong: Array,
             isPlaying: false
         };
 
@@ -34,9 +35,8 @@ class Album extends React.Component {
         this.setState( prevState => ({currentSong: prevState.currentSong = song}))
     }
 
-    handleSongClick(song) {
+    handleSongClick = (song) => {
         const isSameSong = this.state.currentSong === song;
-        console.log(song);
         if (this.state.isPlaying && isSameSong) {
             this.pause()
         } else {
@@ -44,6 +44,7 @@ class Album extends React.Component {
             this.play()
         }
     }
+
 
     render() {
         return (
@@ -63,17 +64,14 @@ class Album extends React.Component {
                     <tbody>
                         {this.state.album.songs.map( (song,index) => {
                             return (
-                                <tr key={index} onClick={() => this.handleSongClick(song)}>
-                                    <td>
-                                        {index + 1}
-                                    </td>
-                                    <td>
-                                        {song.title}
-                                    </td>
-                                    <td>
-                                        {`${Math.floor(song.duration)} sec.`}
-                                    </td>
-                                </tr>
+                                <Song 
+                                    key={index} 
+                                    song={song} 
+                                    num={index + 1} 
+                                    songClick={this.handleSongClick}
+                                    currentSong={this.state.currentSong}
+                                    isPlaying={this.state.isPlaying}    
+                                     />
                             )
                         })}
                     </tbody>
