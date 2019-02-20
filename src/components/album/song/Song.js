@@ -22,11 +22,11 @@ class Song extends Component {
         let outPut = this.props.num;
         
         if (this.props.currentSong === this.props.song && this.props.isPlaying) {
-            outPut = <div className='icon ion-md-pause'></div>
+            outPut = <span className='icon ion-md-pause'></span>
         } else if (this.props.currentSong === this.props.song) {
-            outPut = <div className='icon ion-md-arrow-dropright-circle'></div>
+            outPut = <span className='icon ion-md-arrow-dropright-circle'></span>
         } else if (this.state.isHover) {
-            outPut = <div className='icon ion-md-arrow-dropright-circle'></div>
+            outPut = <span className='icon ion-md-arrow-dropright-circle'></span>
         }
 
         return (
