@@ -1,6 +1,7 @@
 import React from 'react';
 import albumData from './../../data/albums.js';
 import Song from './song';
+import PlayerBar from './../playerBar';
 
 class Album extends React.Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Album extends React.Component {
 
         this.state = {
             album: album,
-            currentSong: Array,
+            currentSong: false,
             isPlaying: false
         };
 
@@ -37,6 +38,9 @@ class Album extends React.Component {
 
     handleSongClick = (song) => {
         const isSameSong = this.state.currentSong === song;
+        if (this.state.currentSong === false) {
+            this.setState( prevState => { return {currentSong: prevState.album.songs[0]}})
+        }
         if (this.state.isPlaying && isSameSong) {
             this.pause()
         } else {
@@ -45,6 +49,27 @@ class Album extends React.Component {
         }
     }
 
+    changeSong = (delta) => {
+        const num = this.state.album.songs.length - 1;
+        const songNumber = this.state.album.songs.findIndex(song => this.state.currentSong === song);
+        if (songNumber === 0 && delta === -1) {
+            this.setState( prevState => {
+                return {currentSong: prevState.album.songs[0]}
+            })
+        } else if (songNumber === num && delta === 1) {
+            this.setState( prevState => {
+                return (
+                    {currentSong: prevState.album.songs[num]}
+                )
+            })
+        } else if (this.state.currentSong !== false) {
+            this.setState( prevState => {
+                return (
+                    {currentSong: prevState.album.songs[songNumber + delta]}
+                )
+            })
+        }
+    }
 
     render() {
         return (
@@ -76,8 +101,15 @@ class Album extends React.Component {
                         })}
                     </tbody>
                 </table>
+                <PlayerBar
+                    isPlaying={this.state.isPlaying}
+                    currentSong={this.state.currentSong}
+                    songClick={this.handleSongClick}
+                    changeSong={this.changeSong}
+
+                     />
             </section>
-        )
+        );
     }
 }
 
