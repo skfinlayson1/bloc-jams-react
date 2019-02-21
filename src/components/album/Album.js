@@ -51,23 +51,12 @@ class Album extends React.Component {
 
     changeSong = (delta) => {
         const num = this.state.album.songs.length - 1;
-        const songNumber = this.state.album.songs.findIndex(song => this.state.currentSong === song);
-        if (songNumber === 0 && delta === -1) {
-            this.setState( prevState => {
-                return {currentSong: prevState.album.songs[0]}
-            })
-        } else if (songNumber === num && delta === 1) {
-            this.setState( prevState => {
-                return (
-                    {currentSong: prevState.album.songs[num]}
-                )
-            })
-        } else if (this.state.currentSong !== false) {
-            this.setState( prevState => {
-                return (
-                    {currentSong: prevState.album.songs[songNumber + delta]}
-                )
-            })
+        const songIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
+        const atTheTop = songIndex === 0 && delta === -1
+        const atTheBottom = songIndex === num && delta === 1
+        if (atTheTop === false && atTheBottom === false && this.state.currentSong !== false && this.state.isPlaying) {
+            this.setSong(this.state.album.songs[songIndex + delta])
+            this.audioElement.play();
         }
     }
 
