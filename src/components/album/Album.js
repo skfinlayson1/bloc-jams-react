@@ -14,12 +14,44 @@ class Album extends React.Component {
         this.state = {
             album: album,
             currentSong: false,
+            currentTime: 0,
+            duration: album.songs[0].duration,
             isPlaying: false
         };
 
         this.audioElement = document.createElement('audio');
         this.audioElement.src = album.songs[0].audioSrc;
     }
+
+    componentDidMount() {
+        this.audioElement.addEventListener('timeupdate', () => {
+            this.setState({ currentTime: this.audioElement.currentTime
+            });
+        });
+        this.audioElement.addEventListener('durationchange', () => {
+            this.setState({ duration: this.audioElement.duration
+            });
+        });
+        this.audioElement.addEventListener('volumecontrol', () => {
+            console.log('sound');
+        })
+        }
+     
+    componentWillUnmount() {
+        this.audioElement.src = null;
+        this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
+        this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
+        }
+
+    handleTimeChange(e) {
+        console.log('step')
+        const newTime = this.audioElement.duration * e.target.value;
+        this.audioElement.currentTime = newTime;
+        this.setState({ currentTime: newTime });
+    }
+
+        
+      
 
     play() {
         this.audioElement.play();
@@ -54,7 +86,7 @@ class Album extends React.Component {
         const songIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
         const atTheTop = songIndex === 0 && delta === -1
         const atTheBottom = songIndex === num && delta === 1
-        if (atTheTop === false && atTheBottom === false && this.state.currentSong !== false && this.state.isPlaying) {
+        if (!atTheTop && !atTheBottom && this.state.currentSong !== false && this.state.isPlaying) {
             this.setSong(this.state.album.songs[songIndex + delta])
             this.audioElement.play();
         }
@@ -95,7 +127,9 @@ class Album extends React.Component {
                     currentSong={this.state.currentSong}
                     songClick={this.handleSongClick}
                     changeSong={this.changeSong}
-
+                    currentTime={this.state.currentTime}
+                    duration={this.state.duration}
+                    handleTimeChange={(e) => this.handleTimeChange(e)}
                      />
             </section>
         );
