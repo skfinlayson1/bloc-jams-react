@@ -18,7 +18,6 @@ class Song extends Component {
 
 
     render() {
-
         let outPut = this.props.num;
         
         if (this.props.currentSong === this.props.song && this.props.isPlaying) {
@@ -34,7 +33,7 @@ class Song extends Component {
 
                 <td>{outPut}</td>
                 <td>{this.props.title}</td>
-                <td>{`${Math.floor(this.props.song.duration)} sec.`}</td>
+                <td>{this.props.formatTime(this.props.song.duration)}</td>
 
             </tr>
         )
