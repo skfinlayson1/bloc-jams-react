@@ -1,5 +1,5 @@
 import React from 'react';
-import albumData from './../../data/albums.js';
+import albumData from './../../../data/albums.js';
 import Song from './song';
 import PlayerBar from './playerBar';
 
@@ -114,15 +114,17 @@ class Album extends React.Component {
             this.audioElement.play();
         }
     }
-
+ 
     render() {
         return (
             <section id="album-info">
-                <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
-                <div className="album-details">
-                    <h1 id="album-title">{this.state.album.title}</h1>
-                    <h2 className="artist">{this.state.album.artist}</h2>
-                    <div id="release-info">{this.state.album.releaseInfo}</div>
+                <div className='imageAndInfo'>
+                    <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title} />
+                    <div className="album-details">
+                        <h1 id="album-title">{this.state.album.title}</h1>
+                        <h2 className="artist">{this.state.album.artist}</h2>
+                        <div id="release-info">{this.state.album.releaseInfo}</div>
+                    </div>
                 </div>
                 <table id="song-list">
                     <colgroup>

@@ -1,0 +1,30 @@
+/* Top of the screen Links ------------------------------------------- */
+
+.screenLinks {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+}
+
+.screenLinks img {
+    margin-top: 2vh;
+    height: 3.5rem;
+}
+
+.homeLink, .libraryLink {
+    color: rgb(0, 212, 212);
+    font-size: 2rem;
+    padding: 3vh 4vw;
+    background-color: rgb(24, 24, 24);
+    border-radius: 0px 0px 5px 5px;
+    text-decoration: none;
+}
+
+.homeLink {
+    float: left;
+}
+
+.libraryLink {
+    float: right;
+}

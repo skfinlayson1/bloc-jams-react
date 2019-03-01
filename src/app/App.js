@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Route, NavLink} from 'react-router-dom';
-import './App.css';
+import './app.css';
+import images from '../data/logo';
 
 //components
 import Landing from './components/landing';
@@ -11,11 +12,11 @@ class App extends Component {
   render() {
     return (
       <div className='mainApp'>
-        <header>
-          <h1>Welcome to Bloc Jams</h1>
-          <nav>
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/library'>Library</NavLink>
+        <header>          
+          <nav className='screenLinks'>
+              <NavLink className='homeLink' to='/'>Home</NavLink>
+              <img src={images.logo} alt={'Bloc Jams Logo'}></img>
+              <NavLink className='libraryLink' to='/library'>Library</NavLink>
           </nav>
         </header>
 

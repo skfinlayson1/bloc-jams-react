@@ -5,6 +5,20 @@ const PlayerBar = (props) => {
     return (
         <section className="player-bar">
 
+            <section id="time-control">
+                <div className="current-time">{props.formatTime(props.currentTime)}</div>
+                    <input 
+                        type="range" 
+                        className="seek-bar-time" 
+                        value={(props.currentTime / props.duration) || 0} 
+                        max="1" 
+                        min="0" 
+                        step="0.01" 
+                        onChange={props.handleTimeChange}
+                        />   
+                <div className="total-time">{props.formatTime(props.duration)}</div> 
+            </section>
+
             <section id="buttons">
                 <button id="previous">
                     <span className="icon ion-md-skip-backward" onClick={() => props.changeSong(-1)}></span>
@@ -17,32 +31,18 @@ const PlayerBar = (props) => {
                 </button>
             </section>
 
-            <section id="time-control">
-                <div className="current-time">{props.formatTime(props.currentTime)}</div>
-                    <input 
-                        type="range" 
-                        className="seek-bar" 
-                        value={(props.currentTime / props.duration) || 0} 
-                        max="1" 
-                        min="0" 
-                        step="0.01" 
-                        onChange={props.handleTimeChange}
-                        />   
-                <div className="total-time">{props.formatTime(props.duration)}</div> 
-            </section>
-
             <section id="volume-control">
-                <div className="icon ion-md-volume-low"></div>
+                <div id='volume-down' className="icon ion-md-volume-low"></div>
                     <input 
                         type="range" 
-                        className="seek-bar" 
+                        className="seek-bar-volume" 
                         value={props.volume}
                         max='1'
                         min='0'
                         step='0.01'
                         onChange={props.handleVolumeChange}
                             />
-                <div className="icon ion-md-volume-high"></div>
+                <div id='volume-up' className="icon ion-md-volume-high"></div>
             </section>
 
         </section>

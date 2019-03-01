@@ -1,0 +1,121 @@
+/* Welcome message ------------------------------------------------------------ */
+
+.introBackground {
+    position: relative;
+    z-index: -1;
+    margin-top: 4.5vh;
+    background: linear-gradient(90deg, black 50%, grey);
+    box-shadow: 0px -20px 50px 10px rgb(240, 0, 92);
+}
+
+.introImage {
+    background: linear-gradient(90deg, grey, transparent 50%),
+        linear-gradient(90deg, transparent, black 100%),
+        url('./../../../data/images/img2.jpg') no-repeat center;
+    width: 100%;
+    background-position: bottom left;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
+.cover {
+    background: linear-gradient(black 10%, transparent);
+    height: 19vh;
+    min-height: 135px;
+}
+
+.introText {
+    color: rgb(0, 212, 212);
+    padding-top: 70px;
+}
+
+/* Sale Points ----------------------------------------------------------------------- */
+
+.point1, .point2, .point3 {
+    position: relative;
+    background: linear-gradient(90deg, grey, black 50%);
+    box-shadow: 0px -20px 50px 10px rgb(240, 0, 92);
+}
+
+.landingCover {
+    background: linear-gradient(black, transparent 90%);
+    height: 18.5vh;
+    min-height: 135px;
+}
+
+.point-title {
+    margin: 0;
+    padding-top: 20px
+}
+
+/* Sale point 1 -------------------------------------------------------------------- */
+
+.point1 {
+    z-index: -2;
+}
+
+.landingImage1 {
+    background: linear-gradient(90deg, transparent 50%, grey),
+        linear-gradient(90deg, black 0%, transparent),
+        url('./../../../data/images/img1.jpg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+/* Sale point 2 ------------------------------------------------------------------------ */
+
+.point2 {
+    z-index: -3;
+}
+
+.landingImage2 {
+    background: linear-gradient(90deg, grey, transparent 50%),
+        linear-gradient(90deg, transparent, black 100%),
+        url('./../../../data/images/img3.jpg');
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+/* Sale Point 3 -------------------------------------------------------------------------- */
+
+.point3 {
+    z-index: -4;
+}
+
+.landingImage3 {
+    background: linear-gradient(90deg, transparent 50%, grey),
+        linear-gradient(90deg, black 0%, transparent),
+        url('./../../../data/images/img4.jpg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+/* Last Statement ------------------------------------------------------------------------ */
+
+.lastStatement {
+    background-color: black;
+    position: relative;
+    z-index: -5;
+}
+
+.finalImage {
+    background: linear-gradient( transparent, black 100%),
+        url('./../../../data/images/img5.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+.finalCover {
+    background: linear-gradient(black, transparent 90%);
+    height: 18vh;
+    min-height: 75px;
+}
+
+.finalMessage {
+    margin: 0;
+    padding-top: 15px
+}

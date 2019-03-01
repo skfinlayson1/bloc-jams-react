@@ -1,0 +1,73 @@
+#buttons, .seek-bar-volume, .seek-bar-time,
+#volume-up, #volume-down {
+    display: inline-block;
+}
+
+.seek-bar-volume, .seek-bar-time, #volume-down {
+    display: none;
+}
+
+.player-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+}
+
+/* Buttons ----------------------------------------------------------------------------- */
+
+#buttons {
+    margin: 15px 0px;
+}
+
+#previous {
+    font-size: 5vh;
+    margin-right: 5vw;
+    margin-left: auto;
+    box-shadow: 0px 5px 15px 0px black;
+}
+
+#play-pause {
+    font-size: 5vh;
+    box-shadow: 0px 5px 15px 0px black;
+}
+
+#next {
+    font-size: 5vh;
+    margin-left: 5vw;
+    margin-right: auto;
+    box-shadow: 0px 5px 15px 0px black;
+}
+
+/* Time controls --------------------------------------------------------------- */
+
+#time-control {
+    margin-top: 15px;
+    margin-left: 4vw;
+    float: left;
+}
+
+.current-time {
+    font-size: 2.5vh;
+}
+
+.total-time {
+    font-size: 2.5vh;
+    border-top: solid white 1px;
+}
+
+/* Hover ---------------------------- */
+
+#time-control:hover .seek-bar-time {
+    display: inline-block;
+}
+
+/* Volume controls ---------------------------------------------------------------- */
+
+#volume-control {
+    float: right;
+    font-size: 5vh;
+    margin: 15px 4vh 15px 0px;
+}
+
+/* Hover ----------------------------- */

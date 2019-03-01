@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import albumData from './../../data/albums.js';
+import albumData from './../../../data/albums.js';
 
 class Library extends React.Component {
     constructor(props) {
@@ -13,10 +13,12 @@ class Library extends React.Component {
                 {this.state.albums.map( (album, index) => {
                     return (
                         <NavLink to={`/album/${album.slug}`}  key={index}>
-                            <img src={album.albumCover} alt={album.title}></img>
-                            <div>{album.title}</div>
-                            <div>{album.artist}</div>
-                            <div>{album.songs.length}</div>
+                            <div className='imageInfo'>
+                                <img src={album.albumCover} alt={album.title}></img>
+                                <div className='title'>{album.title}</div>
+                                <div className='artist'>{album.artist}</div>
+                                <div className ='songCount'>{`${album.songs.length} songs`}</div>
+                            </div>
                         </NavLink>
                     )
                 })}

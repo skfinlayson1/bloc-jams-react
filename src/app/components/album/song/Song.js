@@ -29,10 +29,10 @@ class Song extends Component {
         }
 
         return (
-            <tr onClick={() => this.props.songClick(this.props.song)} onMouseEnter={() => this.changeHover()} onMouseLeave={() => this.changeHover()}>
+            <tr className='songInfo' onClick={() => this.props.songClick(this.props.song)} onMouseEnter={() => this.changeHover()} onMouseLeave={() => this.changeHover()}>
 
                 <td>{outPut}</td>
-                <td>{this.props.title}</td>
+                <td>{this.props.song.title}</td>
                 <td>{this.props.formatTime(this.props.song.duration)}</td>
 
             </tr>
