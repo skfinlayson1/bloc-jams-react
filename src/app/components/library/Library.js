@@ -13,11 +13,11 @@ class Library extends React.Component {
                 {this.state.albums.map( (album, index) => {
                     return (
                         <NavLink to={`/album/${album.slug}`}  key={index}>
-                            <div className='imageInfo'>
+                            <div className='image-info'>
                                 <img src={album.albumCover} alt={album.title}></img>
                                 <div className='title'>{album.title}</div>
                                 <div className='artist'>{album.artist}</div>
-                                <div className ='songCount'>{`${album.songs.length} songs`}</div>
+                                <div className ='song-count'>{`${album.songs.length} songs`}</div>
                             </div>
                         </NavLink>
                     )

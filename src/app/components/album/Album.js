@@ -2,6 +2,7 @@ import React from 'react';
 import albumData from './../../../data/albums.js';
 import Song from './song';
 import PlayerBar from './playerBar';
+import CSS from './albumCSS';
 
 class Album extends React.Component {
     constructor(props) {
@@ -118,14 +119,18 @@ class Album extends React.Component {
     render() {
         return (
             <section id="album-info">
-                <div className='imageAndInfo'>
+
+                <style>{CSS}</style>
+
+                <div className='image-and-info'>
                     <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title} />
                     <div className="album-details">
                         <h1 id="album-title">{this.state.album.title}</h1>
-                        <h2 className="artist">{this.state.album.artist}</h2>
+                        <h2 className="album-artist">{this.state.album.artist}</h2>
                         <div id="release-info">{this.state.album.releaseInfo}</div>
                     </div>
                 </div>
+
                 <table id="song-list">
                     <colgroup>
                         <col id="song-number-column" />
@@ -135,7 +140,7 @@ class Album extends React.Component {
                     <tbody>
                         {this.state.album.songs.map( (song,index) => {
                             return (
-                                <Song 
+                                <Song
                                     key={index} 
                                     song={song} 
                                     num={index + 1} 
@@ -148,6 +153,7 @@ class Album extends React.Component {
                         })}
                     </tbody>
                 </table>
+                
                 <PlayerBar
                     isPlaying={this.state.isPlaying}
                     currentSong={this.state.currentSong}

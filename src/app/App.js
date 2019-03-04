@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Route, NavLink} from 'react-router-dom';
 import './app.css';
-import images from '../data/logo';
+import images from '../data/images';
 
 //components
 import Landing from './components/landing';
@@ -11,12 +11,12 @@ import Album from './components/album';
 class App extends Component {
   render() {
     return (
-      <div className='mainApp'>
+      <div className='main-app'>
         <header>          
-          <nav className='screenLinks'>
-              <NavLink className='homeLink' to='/'>Home</NavLink>
+          <nav className='screen-links'>
+              <NavLink className='home-link' to='/'>Home</NavLink>
               <img src={images.logo} alt={'Bloc Jams Logo'}></img>
-              <NavLink className='libraryLink' to='/library'>Library</NavLink>
+              <NavLink className='library-link' to='/library'>Library</NavLink>
           </nav>
         </header>
 

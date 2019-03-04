@@ -1,21 +1,14 @@
-/* Welcome message ------------------------------------------------------------ */
-
-.introBackground {
-    position: relative;
-    z-index: -1;
-    margin-top: 4.5vh;
-    background: linear-gradient(90deg, black 50%, grey);
-    box-shadow: 0px -20px 50px 10px rgb(240, 0, 92);
+.landing {
+    margin-top: 4rem;
 }
 
-.introImage {
-    background: linear-gradient(90deg, grey, transparent 50%),
-        linear-gradient(90deg, transparent, black 100%),
-        url('./../../../data/images/img2.jpg') no-repeat center;
-    width: 100%;
-    background-position: bottom left;
-    background-size: 50%;
-    background-repeat: no-repeat;
+/* Welcome message ------------------------------------------------------------- */
+
+.intro-background {
+    position: relative;
+    z-index: -1;
+    background: linear-gradient(90deg, black 50%, grey);
+    box-shadow: 0px -20px 50px 10px rgb(240, 0, 92);
 }
 
 .cover {
@@ -24,98 +17,135 @@
     min-height: 135px;
 }
 
-.introText {
-    color: rgb(0, 212, 212);
-    padding-top: 70px;
+.intro-text {
+    font-size: 2rem;
+    padding-top: 50px;
+    margin: 0;
 }
 
 /* Sale Points ----------------------------------------------------------------------- */
 
-.point1, .point2, .point3 {
+.point-1, .point-2, .point-3 {
     position: relative;
     background: linear-gradient(90deg, grey, black 50%);
-    box-shadow: 0px -20px 50px 10px rgb(240, 0, 92);
+    box-shadow: 0px -15px 50px 10px rgb(240, 0, 92);
 }
 
-.landingCover {
+.landing-cover {
     background: linear-gradient(black, transparent 90%);
     height: 18.5vh;
     min-height: 135px;
 }
 
 .point-title {
+    font-size: 1.6rem;
     margin: 0;
     padding-top: 20px
 }
 
+.point-description {
+    font-size: 1.1rem;
+    margin: 10px 10px;
+}
+
 /* Sale point 1 -------------------------------------------------------------------- */
 
-.point1 {
+.point-1 {
     z-index: -2;
-}
-
-.landingImage1 {
-    background: linear-gradient(90deg, transparent 50%, grey),
-        linear-gradient(90deg, black 0%, transparent),
-        url('./../../../data/images/img1.jpg');
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    background-size: 50%;
-}
+} 
 
 /* Sale point 2 ------------------------------------------------------------------------ */
 
-.point2 {
+.point-2 {
     z-index: -3;
-}
-
-.landingImage2 {
-    background: linear-gradient(90deg, grey, transparent 50%),
-        linear-gradient(90deg, transparent, black 100%),
-        url('./../../../data/images/img3.jpg');
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    background-size: 50%;
+    background: linear-gradient(-90deg, grey, black 50%);
 }
 
 /* Sale Point 3 -------------------------------------------------------------------------- */
 
-.point3 {
+.point-3 {
     z-index: -4;
-}
-
-.landingImage3 {
-    background: linear-gradient(90deg, transparent 50%, grey),
-        linear-gradient(90deg, black 0%, transparent),
-        url('./../../../data/images/img4.jpg');
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    background-size: 50%;
 }
 
 /* Last Statement ------------------------------------------------------------------------ */
 
-.lastStatement {
+.last-statement {
     background-color: black;
     position: relative;
     z-index: -5;
 }
 
-.finalImage {
-    background: linear-gradient( transparent, black 100%),
-        url('./../../../data/images/img5.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50%;
-}
-
-.finalCover {
+.final-cover {
     background: linear-gradient(black, transparent 90%);
-    height: 18vh;
-    min-height: 75px;
+    height: 21.8vh;
+    min-height: 50px;
 }
 
-.finalMessage {
+.final-message {
+    font-size: 1.6rem;
     margin: 0;
-    padding-top: 15px
+    padding-top: 30px
+}
+
+@media (min-width: 600px) {
+
+    .intro-text {
+        font-size: 2.75rem;
+        padding-top: 70px;
+    }
+
+    .landing-cover {
+        min-height: 170px;
+    }
+
+    .point-title {
+        font-size: 2.25rem;
+        padding-top: 20px
+    }
+    
+    .point-description {
+        font-size: 1.5rem;
+        margin: 10px 20px;
+    }
+
+    .final-message {
+        font-size: 2.25rem;
+        padding-top: 50px
+    }
+    
+}
+
+@media (min-width: 1200px) {
+
+    .intro-text {
+        font-size: 3.5rem;
+        padding-top: 70px;
+    }
+
+    .landing-cover {
+        min-height: 170px;
+    }
+
+    .point-1 .point-title,
+    .point-1 .point-description,
+    .point-3 .point-title,
+    .point-3 .point-description {
+       margin-right: 50vw;
+    }
+
+    .point-2 .point-title,
+    .point-2 .point-description {
+        margin-left: 50vw;
+    }
+    
+    .point-description {
+        font-size: 1.5rem;
+        margin: 10px 20px;
+    }
+
+    .final-message {
+        font-size: 3em;
+        padding-top: 50px
+    }
+    
 }

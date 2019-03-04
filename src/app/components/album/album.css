@@ -1,32 +1,84 @@
 /* Image and Title ------------------------------------------------------------------ */
-#album-info {
-    margin-top: 15vh;
-    margin-bottom: 15vh;
-}
 
-.imageAndInfo {
-    width: 75vw;
-    margin: auto;
-    padding: 20px;
-    background-image: radial-gradient(circle, transparent 50%, black),
-        url(./../../../data/images/albumBackground.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+#album-info {
+    margin-top: 4.5rem;
+    height: 100vh;
 }
 
 #album-cover-art {
     margin: auto;
-    width: 50vw;
+    width: 60vw;
     box-shadow: 0px 10px 15px 0px black;
+}
+
+#album-title {
+    font-size: 8vw;
+}
+
+.album-artist {
+    font-size: 5vw;
+}
+
+#release-info {
+    font-size: 3vw;
 }
 
 /* List of Songs -------------------------------------------------------------------- */
 
 #song-list {
-    font-size: 1.5rem;
-    width: 75vw;
+    font-size: 5vw;
+    width: 80vw;
     margin: auto;
-    padding: 25px 0px;
+    margin-bottom: 4rem;
+    padding: 1.5rem 0px;
     background: radial-gradient(circle, rgb(88, 88, 88), rgb(0, 0, 0));
-} 
+}
+
+/* Large Screen ------------------------------------------------------------------ */
+
+@media (min-width: 1000px) {
+
+    body .image-and-info {
+        width: 50vw;
+        background: none;
+        padding-right: 10vw;
+    }
+
+    body #album-cover-art {
+        width: 50%;
+    }
+
+    body #album-title {
+        font-size: 3.5rem; 
+    }
+    
+    body .album-artist {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
+    
+    body #release-info {
+        font-size: 2rem;
+    }
+
+    /* Lost of Songs ------------ */
+
+    body #song-list {
+        width: 50vw;
+        background: none;
+        font-size: 3rem;
+        margin: auto;
+    }
+
+    tbody tr {
+        border-bottom: white;
+    }
+
+    tr:nth-child(odd) {
+        background: linear-gradient(90deg, black, rgb(47, 47, 47) 75%);
+    }
+
+    tr:nth-child(even) {
+        background: linear-gradient(90deg, rgb(47,47,47) 25%, black);
+    }
+}
