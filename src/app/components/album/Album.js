@@ -32,21 +32,16 @@ class Album extends React.Component {
             },
             durationchange: () => {
                 this.setState({ duration: this.audioElement.duration });
-            },
-            volumeChange: () => {
-                this.setState({ volume: this.audioElement.volume })
             }
           };
           this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
           this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
-          this.audioElement.addEventListener('volumechange', this.eventListeners.volumeChange);
     }
      
     componentWillUnmount() {
         this.audioElement.src = null;
         this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
         this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
-        this.audioElement.removeEventListener('volumechange', this.eventListeners.volumeChange)
     }
 
     handleTimeChange(e) {
@@ -108,11 +103,11 @@ class Album extends React.Component {
     changeSong = (delta) => {
         const num = this.state.album.songs.length - 1;
         const songIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
-        const atTheTop = songIndex === 0 && delta === -1
-        const atTheBottom = songIndex === num && delta === 1
+        const atTheTop = songIndex === 0 && delta === -1;
+        const atTheBottom = songIndex === num && delta === 1;
         if (!atTheTop && !atTheBottom && this.state.currentSong !== false && this.state.isPlaying) {
             this.setSong(this.state.album.songs[songIndex + delta])
-            this.audioElement.play();
+            this.play();
         }
     }
  

@@ -10,7 +10,6 @@ class PlayerBar extends React.Component {
     }
 
     displayControls = () => {
-        console.log('it worked', this.state.show)
         this.setState( prevState => {
             return {show: !prevState.show}
         })
